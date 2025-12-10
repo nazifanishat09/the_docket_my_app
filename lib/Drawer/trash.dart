@@ -12,7 +12,8 @@ class _TrashScreenState extends State<TrashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: CommonText(title: "Trash")),
+      appBar: AppBar(backgroundColor: Color(0xff92c8a5),
+          centerTitle: true, title: CommonText(title: "Trash")),
     );
   }
 }
