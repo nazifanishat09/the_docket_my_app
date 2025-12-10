@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: DrawerWidget(),
       body: isLoading == true
-          ? Center(child: CircularProgressIndicator())
+          ? Center(child: CircularProgressIndicator(color: Color(0xff92c8a5),))
           : noteData.isEmpty
           ? Center(child: CommonText(title: "No Notes Available"))
           : ListView.builder(

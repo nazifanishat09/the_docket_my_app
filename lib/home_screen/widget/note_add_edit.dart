@@ -40,15 +40,18 @@ class _NoteAddEditScreenState extends State<NoteAddEditScreen> {
           Text('${widget.note}'),
           Padding(
             padding: const EdgeInsets.all(10),
-            child: TextField(
-              controller: textC,
-              cursorColor: Color(0xff92c8a5),
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                border: InputBorder.none,
+            child: Container(height: 600,
+              child: TextField(
+                controller: textC,
+                cursorColor: Color(0xff92c8a5),
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
 
-                hintText: "Note your day..",
-                hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
+                  hintText: "Note your day..",
+                  hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
+
+                ),
               ),
             ),
           ),
