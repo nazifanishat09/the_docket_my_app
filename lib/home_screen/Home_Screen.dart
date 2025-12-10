@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_docket_app/Widget/text_box.dart';
+import 'package:the_docket_app/home_screen/widget/card_widget.dart';
+import 'package:the_docket_app/home_screen/widget/note_add.dart';
 
 import '../Drawer/drawer.dart';
 
@@ -34,48 +36,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: DrawerWidget(),
       body: ListView.builder(itemCount: 5,
-        itemBuilder: (context,i)=>InkWell(
-        onLongPress: () {
-          showDialog(
-            context: context,
-            builder: (a) => AlertDialog(
-              title: CommonText(
-                title: 'Confirm Action',
-                fw: FontWeight.w900,
-              ),
-              content: CommonText(
-                title:
-                "Are you sure that you want to permanently delete this note?",
-              ),
-              actions: [
-                CommonText(title: "Delete", color: Colors.red),
-                SizedBox(width: 20),
-                Text("Cancel"),
-              ],
-            ),
-          );
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(left: 10,right: 10,top:3,),
-          child: Card(shadowColor: Colors.green,elevation: 3,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CommonText(title: "title", fs: 18, fw: FontWeight.w700),
-                  CommonText(title: "title"),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),),
+        itemBuilder: (context,i)=>NoteCardWidget(),),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xff92c8a5),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (a)=>NoteAddScreen()));
+        },
         child: Icon(Icons.add_circle_outline,color: Color(0xff1d3253),fontWeight: FontWeight.bold,),
       ),
     );
   }
 }
+
+

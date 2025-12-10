@@ -17,7 +17,7 @@ class CommonText extends StatelessWidget {
       style: TextStyle(
         fontWeight: fw,
         fontSize: fs,
-        color: color,
+        color: color ?? Color(0xff1d3253),
       ),
     );
   }
