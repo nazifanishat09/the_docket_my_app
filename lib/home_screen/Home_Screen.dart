@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_docket_app/Widget/text_box.dart';
 
+import '../Drawer/drawer.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -14,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff92c8a5),
+
         centerTitle: true,
         title: CommonText(
           title: "THE DOCKET",
@@ -29,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      drawer: Drawer(),
+      drawer: DrawerWidget(),
       body: ListView(
         children: [
           InkWell(
@@ -74,3 +77,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+
