@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TextBox extends StatelessWidget {
-  const TextBox({super.key, required this.title, this.maxline, this.fs, this.fw, this.color});
+class CommonText extends StatelessWidget {
+  const CommonText({super.key, required this.title, this.maxline, this.fs, this.fw, this.color});
   final String title;
   final int? maxline;
   final double? fs;
