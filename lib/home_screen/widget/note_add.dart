@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:the_docket_app/Widget/text_box.dart';
 
-class NoteAddScreen extends StatefulWidget {
-  const NoteAddScreen({super.key});
+class NoteAddEditScreen extends StatefulWidget {
+  const NoteAddEditScreen({super.key, required this.screenType});
+  final String screenType;
 
   @override
-  State<NoteAddScreen> createState() => _NoteAddScreenState();
+  State<NoteAddEditScreen> createState() => _NoteAddEditScreenState();
 }
 
-class _NoteAddScreenState extends State<NoteAddScreen> {
+class _NoteAddEditScreenState extends State<NoteAddEditScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff92c8a5),
-        title: CommonText(title: "Create Your Note", fw: FontWeight.bold),
+        title: CommonText(title: "${widget.screenType}", fw: FontWeight.bold),
         actions: [Icon(Icons.check,color: Color(0xff1d3253),fontWeight: FontWeight.bold,),SizedBox(width: 15,)],
       ),
       body: Column(

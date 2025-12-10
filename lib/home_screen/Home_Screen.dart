@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xff92c8a5),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (a)=>NoteAddScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (a)=>NoteAddEditScreen(screenType: 'Add your notes',)));
         },
         child: Icon(Icons.add_circle_outline,color: Color(0xff1d3253),fontWeight: FontWeight.bold,),
       ),
