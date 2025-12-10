@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_docket_app/Widget/text_box.dart';
+import 'package:the_docket_app/api/get.dart';
 import 'package:the_docket_app/home_screen/widget/card_widget.dart';
-import 'package:the_docket_app/home_screen/widget/note_add.dart';
+import 'package:the_docket_app/home_screen/widget/note_add_edit.dart';
 
 import '../Drawer/drawer.dart';
 
@@ -13,9 +14,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List noteData = [];
+  bool isLoading = false;
+
+  fetchNoteData() async {
+    isLoading = true;
+    setState(() {});
+    var data = await GetNoteData().getData();
+    noteData = data;
+    isLoading = false;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    fetchNoteData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Color(0xffF5FCF9),
+    return Scaffold(
+      backgroundColor: Color(0xffF5FCF9),
       appBar: AppBar(
         backgroundColor: Color(0xff92c8a5),
 
@@ -35,17 +55,30 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       drawer: DrawerWidget(),
-      body: ListView.builder(itemCount: 5,
-        itemBuilder: (context,i)=>NoteCardWidget(),),
+      body: isLoading == true
+          ? Center(child: CircularProgressIndicator())
+          : noteData.isEmpty
+          ? Center(child: CommonText(title: "No Notes Available"))
+          : ListView.builder(
+              itemCount: noteData.length,
+              itemBuilder: (context, i) => NoteCardWidget(data: noteData[i]),
+            ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xff92c8a5),
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (a)=>NoteAddEditScreen(screenType: 'Add your notes',)));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (a) => NoteAddEditScreen(screenType: 'Add your notes'),
+            ),
+          ).then((v){fetchNoteData();});
         },
-        child: Icon(Icons.add_circle_outline,color: Color(0xff1d3253),fontWeight: FontWeight.bold,),
+        child: Icon(
+          Icons.add_circle_outline,
+          color: Color(0xff1d3253),
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
 }
-
-

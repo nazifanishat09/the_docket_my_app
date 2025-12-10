@@ -12,7 +12,7 @@ class CommonText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title ,
-      maxLines: maxline,
+      maxLines: maxline ,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
         fontWeight: fw,
