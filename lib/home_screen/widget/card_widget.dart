@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:the_docket_app/api/delete_api.dart';
 import 'package:the_docket_app/home_screen/widget/note_add_edit.dart';
 
 import '../../Widget/text_box.dart';
 
 class NoteCardWidget extends StatelessWidget {
-  const NoteCardWidget({super.key, required this.data});
+  const NoteCardWidget({
+    super.key,
+    required this.data,
+    required this.onTapDelete,
+  });
   final Map data;
+  final VoidCallback onTapDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +40,18 @@ class NoteCardWidget extends StatelessWidget {
                   "Are you sure that you want to permanently delete this note?",
             ),
             actions: [
-              InkWell(onTap: (){},
-                  child: CommonText(title: "Delete", color: Colors.red)),
+              InkWell(
+                onTap: onTapDelete,
+                child: CommonText(title: "Delete", color: Colors.red),
+              ),
               SizedBox(width: 20),
-              Text("Cancel"),
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+
+                child: Text("Cancel"),
+              ),
             ],
           ),
         );
@@ -53,7 +67,7 @@ class NoteCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // CommonText(title: "title", fs: 18, fw: FontWeight.w700),
-                CommonText(title: data['note'],maxline: 2,),
+                CommonText(title: data['note'], maxline: 2),
               ],
             ),
           ),

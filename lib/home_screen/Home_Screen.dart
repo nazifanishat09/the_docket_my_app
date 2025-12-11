@@ -5,6 +5,7 @@ import 'package:the_docket_app/home_screen/widget/card_widget.dart';
 import 'package:the_docket_app/home_screen/widget/note_add_edit.dart';
 
 import '../Drawer/drawer.dart';
+import '../api/delete_api.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -56,12 +57,19 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: DrawerWidget(),
       body: isLoading == true
-          ? Center(child: CircularProgressIndicator(color: Color(0xff92c8a5),))
+          ? Center(child: CircularProgressIndicator(color: Color(0xff92c8a5)))
           : noteData.isEmpty
           ? Center(child: CommonText(title: "No Notes Available"))
           : ListView.builder(
               itemCount: noteData.length,
-              itemBuilder: (context, i) => NoteCardWidget(data: noteData[i]),
+              itemBuilder: (context, i) => NoteCardWidget(
+                data: noteData[i],
+                onTapDelete: () async {
+                  await DeleteNote().deleteNote(id: noteData[i]['id']);
+                  fetchNoteData();
+                  Navigator.pop(context);
+                },
+              ),
             ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xff92c8a5),
@@ -71,7 +79,9 @@ class _HomeScreenState extends State<HomeScreen> {
             MaterialPageRoute(
               builder: (a) => NoteAddEditScreen(screenType: 'Add your notes'),
             ),
-          ).then((v){fetchNoteData();});
+          ).then((v) {
+            fetchNoteData();
+          });
         },
         child: Icon(
           Icons.add_circle_outline,
