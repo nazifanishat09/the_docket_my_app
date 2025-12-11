@@ -8,13 +8,13 @@ class GetNoteData {
     try {
       Uri u = Uri.parse("https://appapi.coderangon.com/api/notes");
       var r = await http.get(u);
-
+          log("====😎😎😎😎😎😎😎😎😎😎😎😎😎😎$r==");
       if (r.statusCode == 200){
         var data = jsonDecode(r.body)['notes'];
       return data ;
       }
     } catch (e) {
-      log("====$e====");
+      log("====😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀$e====");
     }return [];
   }
 }

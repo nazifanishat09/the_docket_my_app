@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
 
@@ -14,6 +16,6 @@ class NoteAdd {
       } else {
         EasyLoading.showError("Somthing wrong");
       }
-    } catch (e) {}
+    } catch (e) {log("🙄🙄🙄🙄🙄🙄$e");}
   }
 }

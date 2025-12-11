@@ -18,7 +18,7 @@ class _NoteAddEditScreenState extends State<NoteAddEditScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff92c8a5),
-        title: CommonText(title: "${widget.screenType}", fw: FontWeight.bold),
+        title: CommonText(title: widget.screenType, fw: FontWeight.bold),
         actions: [
           InkWell(
             onTap: () async{
@@ -40,18 +40,17 @@ class _NoteAddEditScreenState extends State<NoteAddEditScreen> {
           Text('${widget.note}'),
           Padding(
             padding: const EdgeInsets.all(10),
-            child: Container(height: 600,
-              child: TextField(
-                controller: textC,
-                cursorColor: Color(0xff92c8a5),
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
+            child: TextField(
+              controller: textC,
+              maxLines: 10,
+              cursorColor: Color(0xff92c8a5),
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                border: InputBorder.none,
 
-                  hintText: "Note your day..",
-                  hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
+                hintText: "Note your day..",
+                hintStyle: TextStyle(fontSize: 15, color: Colors.grey),
 
-                ),
               ),
             ),
           ),
