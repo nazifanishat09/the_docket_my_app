@@ -15,6 +15,7 @@ class _NoteAddEditScreenState extends State<NoteAddEditScreen> {
   TextEditingController textC = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    textC.text = widget.note ?? "";
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff92c8a5),
@@ -22,6 +23,11 @@ class _NoteAddEditScreenState extends State<NoteAddEditScreen> {
         actions: [
           InkWell(
             onTap: () async{
+              if(widget.screenType == ""){
+                await NoteAdd.addNote(data: textC.text);
+              }else{
+                await NoteAdd.addNote(data: textC.text);
+              }
              await NoteAdd.addNote(data: textC.text);
               Navigator.pop(context);
             },
@@ -37,7 +43,7 @@ class _NoteAddEditScreenState extends State<NoteAddEditScreen> {
       ),
       body: Column(
         children: [
-          Text('${widget.note}'),
+
           Padding(
             padding: const EdgeInsets.all(10),
             child: TextField(

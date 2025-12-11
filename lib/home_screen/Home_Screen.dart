@@ -68,7 +68,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   await DeleteNote().deleteNote(id: noteData[i]['id']);
                   fetchNoteData();
                   Navigator.pop(context);
-                },
+                }, onTapUpdate:  () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (a) => NoteAddEditScreen(
+                      screenType: "Edit your Notes",
+                      note: noteData[i]["note"],
+                    ),
+                  ),
+                ).then((v){fetchNoteData();});
+
+              },
               ),
             ),
       floatingActionButton: FloatingActionButton(

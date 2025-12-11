@@ -8,26 +8,18 @@ class NoteCardWidget extends StatelessWidget {
   const NoteCardWidget({
     super.key,
     required this.data,
-    required this.onTapDelete,
+    required this.onTapDelete, required this.onTapUpdate,
   });
   final Map data;
   final VoidCallback onTapDelete;
+  final VoidCallback onTapUpdate;
+
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       //ontap👇👇👇👇
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (a) => NoteAddEditScreen(
-              screenType: "Edit your Notes",
-              note: "Hi miss🥰",
-            ),
-          ),
-        );
-      },
+      onTap:onTapUpdate,
 
       //long press👇👇👇👇👇
       onLongPress: () {
