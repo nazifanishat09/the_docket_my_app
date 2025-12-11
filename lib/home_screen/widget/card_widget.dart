@@ -52,7 +52,7 @@ class NoteCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // CommonText(title: "title", fs: 18, fw: FontWeight.w700),
-                CommonText(title: data['notes'],maxline: 2,),
+                CommonText(title: data['note'],maxline: 2,),
               ],
             ),
           ),
