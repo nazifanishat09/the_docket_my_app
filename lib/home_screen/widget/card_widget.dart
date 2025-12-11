@@ -34,7 +34,8 @@ class NoteCardWidget extends StatelessWidget {
                   "Are you sure that you want to permanently delete this note?",
             ),
             actions: [
-              CommonText(title: "Delete", color: Colors.red),
+              InkWell(onTap: (){},
+                  child: CommonText(title: "Delete", color: Colors.red)),
               SizedBox(width: 20),
               Text("Cancel"),
             ],
