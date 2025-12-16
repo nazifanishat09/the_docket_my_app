@@ -16,7 +16,7 @@ class NoteUpdate {
         EasyLoading.showSuccess("Note Updated😊");
         return;
       }else{
-        EasyLoading.showError("Update Failed");
+        EasyLoading.showError("Update Failed 😫");
         return;
       }
 
