@@ -13,15 +13,15 @@ class NoteUpdate {
         headers: {"Accept": "application/json"}
       );
       if(r.statusCode == 200){
-        EasyLoading.showSuccess("Note Updated😊");
+        EasyLoading.showSuccess("Note Updated");
         return;
       }else{
-        EasyLoading.showError("Update Failed 😫");
+        EasyLoading.showError("Update Failed ");
         return;
       }
 
     } catch (e) {
-      log("😎😎😎😎😎😎😎😎😎😎😎====================😎😎😎😎😎😎😎$e");
+      log("😎😎😎😎😎$e");
     }
   }
 }
