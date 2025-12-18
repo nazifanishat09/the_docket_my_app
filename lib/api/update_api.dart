@@ -21,7 +21,7 @@ class NoteUpdate {
       }
 
     } catch (e) {
-      log("😎😎😎😎😎$e");
+      log("$e");
     }
   }
 }
