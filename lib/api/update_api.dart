@@ -20,7 +20,7 @@ class NoteUpdate {
         return;
       }
 
-    } catch (e) {
+    } catch (error) {
       log("$e");
     }
   }
