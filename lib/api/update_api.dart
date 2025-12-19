@@ -21,7 +21,7 @@ class NoteUpdate {
       }
 
     } catch (error) {
-      log("$e");
+      log("$error");
     }
   }
 }
